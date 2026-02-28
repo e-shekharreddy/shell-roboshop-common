@@ -4,7 +4,7 @@ source ./common.sh
 app_name=rabbitmq
 
 check_root
-systemd_setup
+
 
 
 
