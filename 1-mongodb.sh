@@ -16,3 +16,9 @@ VALIDATE $? "Enable MongoDB" # $? == $1 and " <anything> " == $2
 systemctl start mongod 
 VALIDATE $? "start MongoDB"  # $? == $1 and " <anything> " == $2 / # $? is $1 and " <anything> " considor as $2
 
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+VALIDATE $? "Allowing remote connections"
+
+systemctl restart mongod
+VALIDATE $? "Restarted MongoDB" # $? == $1 and " <anything> " == $2 / # $? is $1 and " <anything> " considor as $2
+
