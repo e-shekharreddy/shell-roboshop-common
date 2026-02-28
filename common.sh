@@ -99,7 +99,7 @@ python_setup(){
 }
 
 systemd_setup(){
-    
+    # creating system user
      cp $SCRIPT_DIR/$app_name.service /etc/systemd/system/$app_name.service &>>$LOGS_FILE
     VALIDATE $? "Created systtemctl service"
 
