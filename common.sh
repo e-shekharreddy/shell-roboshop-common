@@ -44,6 +44,10 @@ nodejs_setup(){
     dnf install nodejs -y &>>$LOGS_FILE
     VALIDATE $? "Install NodeJS" # $? == $1 and " <anything> " == $2 / # $? is $1 and " <anything> " considor as $2
 
+        
+    cd /app
+    VALIDATE $? "Moving to app directory"
+    
     npm install &>>$LOGS_FILE
     VALIDATE $? "Installing npm Dependencies"
 }
