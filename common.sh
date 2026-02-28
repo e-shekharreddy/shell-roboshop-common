@@ -11,11 +11,13 @@ Y="\e[33m"
 B="\e[34m"
 N="\e[0m"
 
-STRT_TIME=$(date +%s)
-
-echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+START_TIME=$(date +%s)
 
 mkdir -p $LOGS_FOLDER
+
+echo  "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+
+
 
 
 
