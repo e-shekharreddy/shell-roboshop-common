@@ -12,6 +12,8 @@ N="\e[0m"
 SCRIPT_DIR=$PWD
 START_TIME=$(date +%s)
 MONGODB_HOST="mongodb.tsmvr.fun"
+MYSQL_HOST="mysql.tsmvr.fun"
+
 mkdir -p $LOGS_FOLDER
 
 echo  "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
@@ -73,6 +75,29 @@ app_setup(){
 
 }
 
+java_setup(){
+
+    dnf install maven -y &>>$LOGS_FILE
+    VALIDATE $? "Installing maven"
+
+    cd /app 
+    mvn clean package &>>$LOGS_FILE
+    VALIDATE $? "Installing and Building $app_name"
+
+
+    mv target/$app_name-1.0.jar $app_name.jar &>>$LOGS_FILE
+    VALIDATE $? "Moving and renamaing $app_name"
+
+}
+python_setup(){
+    dnf install python3 gcc python3-devel -y &>>$LOGS_FILE
+    VALIDATE $? "Installing Python"
+
+    cd /app 
+    pip3 install -r requirements.txt &>>$LOGS_FILE
+    VALIDATE $? "Installing Dependencies"
+}
+
 systemd_setup(){
     
      cp $SCRIPT_DIR/$app_name.service /etc/systemd/system/$app_name.service &>>$LOGS_FILE
@@ -92,9 +117,6 @@ app_restart(){
     systemctl restart $app_name &>>$LOGS_FILE
     VALIDATE $? "Restarted $app_name"
 }
-
-
-
 
 print_total_time(){
     END_TIME=$(date +%s)
