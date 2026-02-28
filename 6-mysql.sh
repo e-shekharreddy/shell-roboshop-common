@@ -15,4 +15,5 @@ VALIDATE $? "Enable and started MySQL"
 mysql_secure_installation --set-root-pass RoboShop@1
 VALIDATE $? "root password set"
 
+
 print_total_time
