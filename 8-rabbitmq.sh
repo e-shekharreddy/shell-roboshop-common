@@ -27,5 +27,4 @@ else
     echo -e "User already exist... $Y SKIPPING $N"
 fi
 
-app_restart
 print_total_time
