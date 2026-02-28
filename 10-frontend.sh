@@ -4,7 +4,6 @@ source ./common.sh
 app_name=frontend
 
 check_root
-systemd_setup
 
 dnf module disable nginx -y &>>$LOGS_FILE
 dnf module enable nginx:1.24 -y &>>$LOGS_FILE
