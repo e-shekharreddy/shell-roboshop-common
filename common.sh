@@ -87,7 +87,7 @@ app_setup(){
     mkdir -p /app 
     VALIDATE $? "making app directory" # $? == $1 and " <anything> " == $2 / # $? is $1 and " <anything> " considor as $2
 
-    curl -L -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>$LOGS_FILE
+    curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip &>>$LOGS_FILE
     VALIDATE $? "Downloading $app_name code" # $? == $1 and " <anything> " == $2 / # $? is $1 and " <anything> " considor as $2
 
     cd /app
