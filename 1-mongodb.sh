@@ -22,3 +22,4 @@ VALIDATE $? "Allowing remote connections"
 systemctl restart mongod
 VALIDATE $? "Restarted MongoDB" # $? == $1 and " <anything> " == $2 / # $? is $1 and " <anything> " considor as $2
 
+print_total_time

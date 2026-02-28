@@ -13,7 +13,7 @@ N="\e[0m"
 
 STRT_TIME=$(date +%s)
 
-echo "$(date "+%Y_%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
 
 mkdir -p $LOGS_FOLDER
 
@@ -30,17 +30,17 @@ fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo -e "$(date "+%Y_%m-%d %H:%M:%S") $2... $R FAILURE $N " | tee -a $LOGS_FILE
+        echo -e "$(date "+%Y-%m-%d %H:%M:%S") $2... $R FAILURE $N " | tee -a $LOGS_FILE
         exit 1
     else
-        echo -e "(date "+%Y_%m-%d %H:%$M:%S") $2... $G SUCCESS $N " | tee -a $LOGS_FILE
+        echo -e "(date "+%Y-%m-%d %H:%$M:%S") $2... $G SUCCESS $N " | tee -a $LOGS_FILE
     fi
 }
 
 print_total_time(){
     END_TIME=$(date +%s)
     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
-    echo -e "$(date "+%Y_%m-%d %H:%M:%S") | Script Excute in: $G $TOTAL_TIME seconds $N" | tee -a $LOGS_FILE
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") | Script Excute in: $G $TOTAL_TIME seconds $N" | tee -a $LOGS_FILE
 }
 
 
