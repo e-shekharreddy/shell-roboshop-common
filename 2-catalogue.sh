@@ -15,7 +15,7 @@ VALIDATE $? "Coping Mongo repo"
 dnf install mongodb-mongosh -y &>>$LOGS_FILE
 VALIDATE $? "installing MongoDB"
 
-INDEX=$( mongosh --host $MONGODB_HOST --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")' )
+INDEX=$(mongosh --host $MONGODB_HOST --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 
 if [ $INDEX -le 0 ]; then
     mongosh --host $MONGODB_HOST </app/db/master-data.js &>>$LOGS_FILE
@@ -26,3 +26,5 @@ else
 fi
 
 app_restart
+
+print_total_time
