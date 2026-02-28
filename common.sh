@@ -15,7 +15,7 @@ START_TIME=$(date +%s)
 
 mkdir -p $LOGS_FOLDER
 
-echo -e "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+echo  "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
 
 
 
@@ -35,7 +35,7 @@ VALIDATE(){
         echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $2... $R FAILURE $N " | tee -a $LOGS_FILE
         exit 1
     else
-        echo -e "(date "+%Y-%m-%d %H:%M:%S") | $2... $G SUCCESS $N " | tee -a $LOGS_FILE
+        echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $2... $G SUCCESS $N " | tee -a $LOGS_FILE
     fi
 }
 
