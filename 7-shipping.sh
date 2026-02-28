@@ -4,8 +4,9 @@ source ./common.sh
 app_name=shipping
 
 check_root
-java_setup
 app_setup
+java_setup
+systemd_setup
 
 
 
@@ -24,6 +25,6 @@ if [ $? -ne 0 ]; then
 else
     echo -e "Data already exist... $Y SKIPPING $N"
 fi
-systemd_setup
+
 app_restart
 print_total_time
