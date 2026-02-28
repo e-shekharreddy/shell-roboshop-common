@@ -2,7 +2,7 @@
 
 source ./common.sh
 app_name=shipping
-MYSQL_HOST="mysql.tsmvr.fun"
+
 
 check_root
 app_setup
