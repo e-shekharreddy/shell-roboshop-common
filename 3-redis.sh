@@ -1,6 +1,6 @@
 #1/bin/bash
 
-sourcr ./common.sh
+source ./common.sh
 app_name=redis
 
 check_root
