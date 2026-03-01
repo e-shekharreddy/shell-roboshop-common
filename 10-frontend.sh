@@ -27,7 +27,7 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip &>>$LOGS_FILE
 VALIDATE $? "Unzinping the frontend code"
 
-rm -rf /etc/nginx/nginx.conf
+rm -rf /etc/nginx/nginx.conf/*
 VALIDATE $? "Removed default Configuration file"
 
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf  &>>$LOGS_FILE
