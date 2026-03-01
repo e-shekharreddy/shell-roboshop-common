@@ -11,8 +11,8 @@ B="\e[34m"
 N="\e[0m"
 SCRIPT_DIR=$PWD
 START_TIME=$(date +%s)
-MONGODB_HOST="mongodb.tsmvr.fun"
-MYSQL_HOST="mysql.tsmvr.fun"
+MONGODB_HOST=mongodb.tsmvr.fun
+MYSQL_HOST=mysql.tsmvr.fun
 
 mkdir -p $LOGS_FOLDER
 
