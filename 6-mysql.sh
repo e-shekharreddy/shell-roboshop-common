@@ -17,3 +17,4 @@ VALIDATE $? "root password set"
 
 
 print_total_time
+
